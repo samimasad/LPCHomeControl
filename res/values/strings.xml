@@ -2,7 +2,10 @@
 
     <string name="app_name">LPCHomeControl</string>
     <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Setup Server</string>
     <string name="title_activity_main">LPCHomeControl</string>
+    <string name="button_to_lcd_txt">Send to LCD</string>
+    <string name="checkbox_LED_TXT">LED ON</string>
+    <string name="button_to_led_txt">Send LED Control</string>
 
 </resources>
