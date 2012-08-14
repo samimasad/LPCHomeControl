@@ -11,5 +11,6 @@
     <string name="Txtsetserver">Set Server Address</string>
     <string name="default_server">192.168.0.120</string>
     <string name="buttonSaveServer">Save Server</string>
+    <string name="sharedprefkey_server">server_address</string>
 
 </resources>

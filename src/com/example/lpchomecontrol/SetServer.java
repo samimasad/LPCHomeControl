@@ -9,8 +9,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import com.example.lpchomecontrol.MainActivity.ActivityReceiver;
+import com.example.lpchomecontrol.MainActivity;
+
 
 public class SetServer extends Activity {
 	
@@ -27,11 +28,17 @@ public class SetServer extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_server);
         
+        String name_from_settings  = com.example.lpchomecontrol.MainActivity.settings.getString(getString(R.string.sharedprefkey_server),getString(R.string.default_server) );
+             
         dialogbox = new Dialog(this);
         
-        
         editText_server_address = (EditText)findViewById(R.id.editTextServerAddress);
+        
+        editText_server_address.setText(name_from_settings);
         serveraddress = editText_server_address.getText().toString(); //init data from what we have in the server
+        
+        
+        
                 
         save_server_button = (Button)findViewById(R.id.buttonSaveServer);
         save_server_button.setOnClickListener(new View.OnClickListener() {

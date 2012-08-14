@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,8 @@ public class MainActivity extends Activity {
     public static final String PARAM_IN_MSG = "imsg";
     public static final String PARAM_OUT_MSG = "omsg";
     private ActivityReceiver receiver;
+    static SharedPreferences settings;
+    static SharedPreferences.Editor editor;
 
 	
 	public class ActivityReceiver extends BroadcastReceiver {
@@ -28,12 +31,17 @@ public class MainActivity extends Activity {
                 String output = "";
                 output = intent.getStringExtra(PARAM_OUT_MSG);
                 if (output != null)
+                {
                 	serveraddress = output ;
+                	editor.putString(getString(R.string.sharedprefkey_server), serveraddress); //update settings
+                	editor.commit();
+                }
          }
      }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
@@ -42,7 +50,21 @@ public class MainActivity extends Activity {
         receiver = new ActivityReceiver();
         registerReceiver(receiver, filter);
 
+        
+        //check if it is empty , if so fill it up with those values
+        settings = this.getPreferences(MODE_PRIVATE);
+        editor = settings.edit();
         //get the address value for the server
+        serveraddress = settings.getString(getString(R.string.sharedprefkey_server), null) ;
+        
+        if(serveraddress == null)
+        {
+        	//put default value in the address and update the non-volatile storage
+        	serveraddress = getString(R.string.default_server);
+        	editor.putString(getString(R.string.sharedprefkey_server), serveraddress);
+        	editor.commit();
+        	
+        }
         
         
     }
