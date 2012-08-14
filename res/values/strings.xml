@@ -7,5 +7,9 @@
     <string name="button_to_lcd_txt">Send to LCD</string>
     <string name="checkbox_LED_TXT">LED ON</string>
     <string name="button_to_led_txt">Send LED Control</string>
+    <string name="title_activity_set_server">SetServer</string>
+    <string name="Txtsetserver">Set Server Address</string>
+    <string name="default_server">192.168.0.120</string>
+    <string name="buttonSaveServer">Save Server</string>
 
 </resources>
