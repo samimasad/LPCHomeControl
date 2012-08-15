@@ -24,7 +24,7 @@
         android:text="@string/button_to_lcd_txt" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonSendtoLED"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         android:text="@string/button_to_led_txt" />
 
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/checkBoxLEDON"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

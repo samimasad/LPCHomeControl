@@ -16,8 +16,8 @@ import com.example.lpchomecontrol.MainActivity;
 public class SetServer extends Activity {
 	
     public static final String PARAM_IN_MSG = "imsg";
-    public static final String PARAM_OUT_MSG = "omsg";
-	public String serveraddress ;
+    public static final String PARAM_OUT_SERVER_MSG = "omsg_server";
+	private String serveraddress ;
 	private Button save_server_button ;
 	private EditText editText_server_address ;
 	private Dialog dialogbox ;
@@ -67,7 +67,7 @@ public class SetServer extends Activity {
                 Intent broadcastIntent = new Intent();
                 broadcastIntent.setAction(ActivityReceiver.ACTION_RESP);
                 broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
-                broadcastIntent.putExtra(PARAM_OUT_MSG, serveraddress);
+                broadcastIntent.putExtra(PARAM_OUT_SERVER_MSG, serveraddress);
                 sendBroadcast(broadcastIntent);
 
                 finish();
